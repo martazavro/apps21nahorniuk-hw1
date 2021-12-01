@@ -3,20 +3,20 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
 
-    double[] series;
-    int size;
-    static final int minvalue = -273;
+    static final int MINVALUE = -273;
+    private double[] series;
+    private int size;
 
     public TemperatureSeriesAnalysis() {
         this.series = new double[] {};
         this.size = 0;
     }
 
-    public TemperatureSeriesAnalysis( double[] Series) {
-        this.series = Series;
-        this.size = Series.length;
+    public TemperatureSeriesAnalysis(double[] series) {
+        this.series = series;
+        this.size = series.length;
         for (int i = 0; i < size; i++) {
-            if (series[i] < minvalue){
+            if (series[i] < MINVALUE) {
                 throw new InputMismatchException("Its too cold here!");
             }
         }
@@ -35,7 +35,8 @@ public class TemperatureSeriesAnalysis {
         for (int i = 0; i < size; i++) {
             sum += series[i];
         }
-        return sum / this.size;}
+        return sum / this.size;
+    }
 
     public double deviation() {
         IsEmpty();
@@ -130,7 +131,7 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         for (int i = 0; i < temps.length; i++) {
-            if (temps[i] < minvalue) {
+            if (temps[i] < MINVALUE) {
                 throw new InputMismatchException("Its too cold here!");
             }
         }
