@@ -22,7 +22,7 @@ public class TemperatureSeriesAnalysis {
         }
     }
 
-    private void IsEmpty() {
+    private void isEmpty() {
         if (this.size == 0) {
             throw new IllegalArgumentException("No temperature data available");
         }
@@ -30,7 +30,7 @@ public class TemperatureSeriesAnalysis {
 
     public double average() {
 
-        IsEmpty();
+        isEmpty();
         double sum = 0;
         for (int i = 0; i < size; i++) {
             sum += series[i];
@@ -39,7 +39,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        IsEmpty();
+        isEmpty();
         double sum = 0;
         for (int i = 0; i < size; i++) {
             double difference = series[i] - average();
@@ -49,7 +49,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-        IsEmpty();
+        isEmpty();
         double min = series[0];
         for (int i = 0; i < size; i++) {
             if (series[i] < min) {
@@ -60,7 +60,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
-        IsEmpty();
+        isEmpty();
         double max = series[0];
         for (int i = 0; i < size; i++) {
             if (series[i] > max) {
@@ -71,7 +71,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
-        IsEmpty();
+        isEmpty();
         double closest = series[0];
         for (int i = 0; i < size; i++) {
             if (Math.abs(series[i]) < Math.abs(closest)) {
@@ -82,7 +82,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double value) {
-        IsEmpty();
+        isEmpty();
         double minDif = Math.abs(series[0]-value);
         double diff = 0, closest = 0;
         for (int i = 0; i < size; i++) {
@@ -100,7 +100,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue) {
-        IsEmpty();
+        isEmpty();
         double[] lessTemps = new double[size];
         int j = 0;
         for (int i = 0; i < size; i++) {
@@ -113,7 +113,7 @@ public class TemperatureSeriesAnalysis {
         }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        IsEmpty();
+        isEmpty();
         double[] lessTemps = new double[size];
         int j = 0;
         for (int i = 0; i < size; i++) {
@@ -135,7 +135,7 @@ public class TemperatureSeriesAnalysis {
                 throw new InputMismatchException("Its too cold here!");
             }
         }
-        if (series.length - size <= temps.length){
+        if (series.length - size <= temps.length) {
             double[] newTemps = new double[2*(size + temps.length)];
             System.arraycopy(series, 0, newTemps, 0, size);
             series = newTemps;
