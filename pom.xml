@@ -92,6 +92,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.5</version>
                 <configuration>
+                    <linkXref>true</linkXref>
                     <sourceEncoding>UTF8</sourceEncoding>
                     <minimumTokens>30</minimumTokens>
                     <targetJdk>1.7</targetJdk>
